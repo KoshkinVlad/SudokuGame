@@ -2,7 +2,7 @@ package Sudoku.core;
 
 import javax.swing.*;
 
-public class NumberCell extends JButton {
+public class Cell extends JButton {
     private int value;
     private int x;
     private int y;
@@ -18,6 +18,14 @@ public class NumberCell extends JButton {
 
     public int getValue() {
         return value;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 
     @Override
