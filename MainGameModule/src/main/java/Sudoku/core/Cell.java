@@ -6,7 +6,7 @@ public class Cell extends JButton {
     private int value;
     private int x;
     private int y;
-    private boolean isNumberCorrect=true;
+    private boolean isNumberCorrect = true;
 
     public void setNumberCorrect(boolean numberCorrect) {
         isNumberCorrect = numberCorrect;
@@ -14,27 +14,26 @@ public class Cell extends JButton {
 
     public void setValue(int value) {
         this.value = value;
+        setText(String.valueOf(value == 0 ? "" : value));
     }
 
     public int getValue() {
         return value;
     }
 
-    public void setX(int x) {
+    public void setXPos(int x) {
         this.x = x;
     }
 
-    public void setY(int y) {
+    public void setYPos(int y) {
         this.y = y;
     }
 
-    @Override
-    public int getX() {
+    public int getXPos() {
         return x;
     }
 
-    @Override
-    public int getY() {
+    public int getYPos() {
         return y;
     }
 }

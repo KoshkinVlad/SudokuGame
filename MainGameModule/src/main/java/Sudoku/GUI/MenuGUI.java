@@ -1,14 +1,13 @@
 package Sudoku.GUI;
 
 import Sudoku.commons.CommonVariables;
-import Sudoku.core.Field;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MenuGUI extends JFrame implements ActionListener{
+public class MenuGUI extends JFrame implements ActionListener {
 
     public final int HEIGHT = 200;
     private JButton start = new JButton("Начать новую игру");

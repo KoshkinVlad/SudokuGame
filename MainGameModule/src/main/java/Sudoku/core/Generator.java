@@ -26,11 +26,12 @@ public class Generator {
     }
 
     private void initializeCells() {
-        for (int x = 0; x < cells.length; x++) {
-            for (int y = 0; y < cells[0].length; y++) {
+        for (int x = 0; x < CommonVariables.FIELD_SIZE; x++) {
+            for (int y = 0; y < CommonVariables.FIELD_SIZE; y++) {
                 cells[x][y] = new Cell();
-                cells[x][y].setX(x);
-                cells[x][y].setY(y);
+                cells[x][y].setXPos(x);
+                cells[x][y].setYPos(y);
+                cells[x][y].setEnabled(false);
             }
         }
     }
@@ -39,8 +40,22 @@ public class Generator {
         initializeCells();
         makeBaseField();
         shuffleField(150);
-
+        removeRandomCells(complexityOpenedCellsMap.get(complexity));
         printField();
+        field.fill(cells);
+    }
+
+    private void removeRandomCells(Integer hintsAmount) {
+        Random random = new Random();
+        for (int i = 0; i < Math.pow(CommonVariables.FIELD_SIZE, 2) - hintsAmount; i++) {
+            int x, y;
+            do {
+                x = random.nextInt(CommonVariables.FIELD_SIZE);
+                y = random.nextInt(CommonVariables.FIELD_SIZE);
+            } while (cells[x][y].getValue() == 0);
+            cells[x][y].setValue(0);
+            cells[x][y].setEnabled(true);
+        }
     }
 
     private void makeBaseField() {
